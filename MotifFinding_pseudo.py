@@ -7,7 +7,7 @@ Created on Thu Apr  8 01:34:59 2021
 
 
 from MySeq import MySeq
-from MyMotifs import MyMotifs
+from MyMotifs_pseudo import MyMotifs
  
 
 class MotifFinding:
