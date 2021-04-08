@@ -223,7 +223,8 @@ class MotifFinding:
             # remover a sequencia aleatoria da lista de sequencias
             seq = self.seqs.pop(seq_idx)
             # remover a posicao da sequencia aletatoria no vetor de posicoes iniciais 
-            s_partial = s.copy().pop(seq_idx) 
+            s_partial = s.copy()
+            s_partial.pop(seq_idx) 
             # criar o perfil sem a sequencia removida
             motif = self.createMotifFromIndexes(s_partial)
             motif.createPWM()
