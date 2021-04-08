@@ -37,17 +37,17 @@ class MyMotifs:
             for j in range(len(self.counts[0])):
                 self.counts[i][j] += 1
           
-            
+                  
     def createPWM_pseudoCounts(self):
-        if self.counts == None: self.doPseudoCounts()
-        sum = 0 
+        if self.counts == None: self.doCounts()
+        #sum = 0 
         # somatorio das colunas
-        for i in range(len(self.counts)):
-            sum += self.counts[i][0]
+        # for i in range(len(self.counts)):
+        #     sum += self.counts[i][0]
         self.pwm = createMatZeros(len(self.alphabet), self.size)    
         for i in range(len(self.alphabet)):
             for j in range(self.size):
-                self.pwm[i][j] = float(self.counts[i][j]) / sum
+                self.pwm[i][j] = float(self.counts[i][j]) / (len(self.seqs)+len(self.alphabet))
     
     def consensus(self):
         res = ""
