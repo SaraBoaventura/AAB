@@ -6,6 +6,7 @@
 from MySeq import MySeq
 from MyMotifs import MyMotifs
  
+ 
 
 class MotifFinding:
     
