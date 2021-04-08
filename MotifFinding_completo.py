@@ -117,7 +117,8 @@ class MotifFinding:
                 res.append(s[pos]+1)
         return res
     
-    
+    # quando as folhas de um prefixo não contêm a melhor solução
+    # pode-se saltar para outro prefixo no mesmo nível
     def bypass (self, s):
         res =  []
         pos = len(s) -1
