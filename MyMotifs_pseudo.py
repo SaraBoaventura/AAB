@@ -39,7 +39,7 @@ class MyMotifs:
           
             
     def createPWM_pseudoCounts(self):
-        if self.counts == None: self.doCounts()
+        if self.counts == None: self.doPseudoCounts()
         sum = 0 
         # somatorio das colunas
         for i in range(len(self.counts)):
