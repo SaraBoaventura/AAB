@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+        
+
 class BWT:
     
     def __init__(self, seq = "", buildsufarray = False):
@@ -10,20 +12,18 @@ class BWT:
 
     def build_bwt(self, text, buildsufarray = False):
         ls = []
-        # ...
-
-#        if buildsufarray:
-#            self.sa = []
-#            for i in range(len(ls)):
-#                stpos = ls[i].index("$")
-#                self.sa.append(len(text)-stpos-1)
+        for i in range(len(text)): 
+            ls.append(text[i:] + text[:i])
+        ls.sort() 
+        res = ""
         for i in range(len(text)):
-            ls.append(text[i:]+text[:i])
-        ls.sort()
-        res = " "
-        for i in range(len(text)):
-            res += ls[i][len(text)-1]
-        return res    
+            res += ls[i][len(text) - 1]  
+        if buildsufarray: 
+            self.sa = []
+            for i in range(len(ls)):
+                stpos = ls[i].index("$") 
+                self.sa.append(len(text) - stpos - 1)
+        return res  
     
     def inverse_bwt(self):
         firstcol = self.get_first_col()
@@ -79,10 +79,14 @@ class BWT:
                 flag = False            
         return res        
  
-    # def bw_matching_pos(self, patt):
-    #     res = []
-    #     #...
-    #     return res
+   
+    def bw_matching_pos(self, patt):
+        res = []
+        matches = self.bw_matching(patt)
+        for m in matches:
+            res.append(self.sa[m])
+        res.sort()
+        return res
  
 # auxiliary
  
@@ -120,4 +124,3 @@ def test():
 test()
 #test2()
 #test3()
-
